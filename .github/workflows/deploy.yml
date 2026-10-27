@@ -1,31 +1,14 @@
-name: Deploy to GitHub Pages
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path' // <-- Importante per gestire i percorsi
 
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Clean install and Build
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install --legacy-peer-deps
-          npx vite build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: '/Scontrino/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'), // <-- Dice a Vite che "@" corrisponde alla cartella "src"
+    },
+  },
+})
