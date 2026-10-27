@@ -30,6 +30,7 @@ jobs:
           rm -rf node_modules package-lock.json
           npm install --legacy-peer-deps
           npx vite build
+          touch ./dist/.nojekyll # <-- Crea il file salvavita per GitHub Pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
