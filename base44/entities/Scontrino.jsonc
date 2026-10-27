@@ -1,0 +1,48 @@
+{
+  "name": "Scontrino",
+  "type": "object",
+  "properties": {
+    "nome_acquisto": {
+      "type": "string",
+      "description": "Nome dell'acquisto"
+    },
+    "prodotti": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "descrizione": {
+            "type": "string"
+          },
+          "prezzo": {
+            "type": "number"
+          },
+          "quantita": {
+            "type": "number"
+          }
+        }
+      },
+      "default": []
+    },
+    "totale": {
+      "type": "number"
+    },
+    "importo_dato": {
+      "type": "number"
+    },
+    "resto": {
+      "type": "number"
+    },
+    "email_acquirente": {
+      "type": "string",
+      "format": "email"
+    },
+    "nome_acquirente": {
+      "type": "string",
+      "description": "Nome dell'acquirente"
+    }
+  },
+  "required": [
+    "nome_acquisto"
+  ]
+}
