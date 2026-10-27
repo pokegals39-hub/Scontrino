@@ -18,8 +18,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies & Build
+      - name: Clean npm cache & Install dependencies
         run: |
+          npm cache clean --force
           npm install
           npm run build
 
