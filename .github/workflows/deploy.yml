@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies & Build
         run: |
           npm install --legacy-peer-deps
-          npm run build
+          npx vite build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
